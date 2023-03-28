@@ -10,5 +10,5 @@ public interface UserService {
     void add(User user);
     List<User> listUsers();
     @Autowired
-    User getUserByCar(Car car);
+    User getUserByCar(String model, int series);
 }

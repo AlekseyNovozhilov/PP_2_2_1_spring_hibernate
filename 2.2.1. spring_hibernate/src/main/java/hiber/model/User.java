@@ -23,7 +23,9 @@ public class User {
    @Column(name = "email")
    private String email;
 
-
+   public void setUserCar(Car userCar) {
+      this.userCar = userCar;
+   }
 
    @OneToOne(cascade = CascadeType.ALL)
    @Autowired
@@ -37,22 +39,9 @@ public class User {
       this.email = email;
    }
 
-   public User(String firstName, String lastName, String email, Car userCar) {
-      this.id = id;
-      this.firstName = firstName;
-      this.lastName = lastName;
-      this.email = email;
-      this.userCar = userCar;
-   }
    public Car getUserCar() {
       return userCar;
    }
-
-
-/*   @Autowired
-   public void setUserCar(Car userCar) {
-      this.userCar = userCar;
-   }*/
 
    public Long getId() {
       return id;

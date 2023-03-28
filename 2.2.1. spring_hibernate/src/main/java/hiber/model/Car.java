@@ -1,6 +1,5 @@
 package hiber.model;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -20,9 +19,6 @@ public class Car {
     @Column
     private int series;
 
-    @OneToOne
-    private User user;
-
     public Car() {
     }
 
@@ -30,10 +26,10 @@ public class Car {
         this.model = model;
         this.series = series;
     }
-    @Autowired
-    public void setUser(User user) {
-        this.user = user;
-    }
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "users_id")
+    private User user;
 
     public Long getId() {
         return id;
